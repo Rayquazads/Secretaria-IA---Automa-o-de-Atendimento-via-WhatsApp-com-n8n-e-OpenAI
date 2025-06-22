@@ -103,8 +103,8 @@ O fluxo acessa os eventos do dia, extrai telefone e ID da conversa, e envia mens
 
 ## \:handshake: Contato
 
-Desenvolvido por \[Seu Nome].
-Para dúvidas técnicas ou colaboração, envie uma mensagem via [LinkedIn](https://linkedin.com/in/seunome) ou abra uma issue aqui no repositório.
+Desenvolvido por Gabriel Costa.
+Para dúvidas técnicas ou colaboração, envie uma mensagem via [LinkedIn](https://www.linkedin.com/in/gabriel-costa-a565a5331/) ou abra uma issue aqui no repositório.
 
 ---
 
