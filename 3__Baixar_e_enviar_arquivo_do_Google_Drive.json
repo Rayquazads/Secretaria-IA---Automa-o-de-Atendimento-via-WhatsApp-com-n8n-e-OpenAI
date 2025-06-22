@@ -1,0 +1,178 @@
+{
+  "name": "3. Baixar e enviar arquivo do Google Drive",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "file_id"
+            },
+            {
+              "name": "id_conta"
+            },
+            {
+              "name": "id_conversa"
+            },
+            {
+              "name": "url_chatwoot"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        380,
+        680
+      ],
+      "id": "455e7e72-1897-4e7f-b129-8b4a5cdc1e93",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.file_id }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        600,
+        680
+      ],
+      "id": "03f07339-e41f-496d-871e-6a83880aa2e5",
+      "name": "Baixar arquivo",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "2XV3WEoonBrENqD3",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "71dda3d7-4505-4d03-b70f-63f5c005c0c3",
+              "name": "status",
+              "value": "={{ $json.status }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1040,
+        680
+      ],
+      "id": "206d27fd-1a6c-4972-8549-9ffc23e71542",
+      "name": "Output"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('When Executed by Another Workflow').item.json.url_chatwoot }}/api/v1/accounts/{{ $('When Executed by Another Workflow').item.json.id_conta }}/conversations/{{ $('When Executed by Another Workflow').item.json.id_conversa }}/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "contentType": "multipart-form-data",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "parameterType": "formBinaryData",
+              "name": "attachments[]",
+              "inputDataFieldName": "data"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        820,
+        680
+      ],
+      "id": "98fccd0f-89e0-4685-9372-dd6e2361f7cb",
+      "name": "Enviar arquivo",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "gHrrEXgQiCIIiUD3",
+          "name": "Chatwoot Credencial"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## 3. Baixar e enviar arquivo do Google Drive",
+        "height": 80,
+        "width": 540,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        300,
+        500
+      ],
+      "id": "9dc9fce0-42a9-4cf3-88bf-dd536a9387b2",
+      "name": "Sticky Note30"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Baixar arquivo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Baixar arquivo": {
+      "main": [
+        [
+          {
+            "node": "Enviar arquivo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar arquivo": {
+      "main": [
+        [
+          {
+            "node": "Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "c5ad129b-237d-4712-9fe4-8213c3bb8715",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9bf9253418ac3740b1b9bddbf7e7c7f9c5ad1db81b716e7b9c80687a584982ab"
+  },
+  "id": "5hlWLPPmmW1APfAa",
+  "tags": []
+}
