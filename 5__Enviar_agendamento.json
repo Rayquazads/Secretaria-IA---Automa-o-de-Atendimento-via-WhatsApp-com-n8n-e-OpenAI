@@ -23,10 +23,17 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [
+<<<<<<< HEAD
         -64,
         224
       ],
       "id": "1f86c488-9473-425e-88dd-a071d407ae1a",
+=======
+        180,
+        900
+      ],
+      "id": "2f5dd644-79a8-41e1-bbda-a031f1e758b9",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
       "name": "When Executed by Another Workflow"
     },
     {
@@ -49,6 +56,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
+<<<<<<< HEAD
         160,
         224
       ],
@@ -58,6 +66,17 @@
         "httpHeaderAuth": {
           "id": "C0eMQGDc861yfRFa",
           "name": "Chatwoot"
+=======
+        400,
+        900
+      ],
+      "id": "766c6498-6287-4f10-be77-418a002222f3",
+      "name": "Enviar mensagem",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "gHrrEXgQiCIIiUD3",
+          "name": "Chatwoot Credencial"
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
         }
       }
     },
@@ -71,10 +90,17 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
+<<<<<<< HEAD
         -160,
         0
       ],
       "id": "c436fc26-6208-4630-ad30-1953b4fcf93d",
+=======
+        80,
+        680
+      ],
+      "id": "bb8647b5-b191-460a-bf1d-b8ae63eedbfe",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
       "name": "Sticky Note30"
     }
   ],
@@ -96,10 +122,18 @@
   "settings": {
     "executionOrder": "v1"
   },
+<<<<<<< HEAD
   "versionId": "97101b04-32f9-4a04-9b05-af8d74972bd4",
   "meta": {
     "instanceId": "d8a7dbb9e6509fb213e426b82d04df07b648268fb2c830374de0a715dee40e75"
   },
   "id": "XYIyoA9T29VLWTUV",
+=======
+  "versionId": "7e8e6bf2-3bf4-4f7d-9545-75e954709986",
+  "meta": {
+    "instanceId": "9bf9253418ac3740b1b9bddbf7e7c7f9c5ad1db81b716e7b9c80687a584982ab"
+  },
+  "id": "Fcm7q4XRMjvktU10",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
   "tags": []
 }

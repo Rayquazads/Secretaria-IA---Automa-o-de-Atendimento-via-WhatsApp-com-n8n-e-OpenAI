@@ -23,10 +23,17 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [
+<<<<<<< HEAD
         -112,
         272
       ],
       "id": "b10f45b7-b252-4cc8-bd1a-90bd377c0045",
+=======
+        380,
+        680
+      ],
+      "id": "455e7e72-1897-4e7f-b129-8b4a5cdc1e93",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
       "name": "When Executed by Another Workflow"
     },
     {
@@ -42,6 +49,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
+<<<<<<< HEAD
         112,
         272
       ],
@@ -50,6 +58,16 @@
       "credentials": {
         "googleDriveOAuth2Api": {
           "id": "dIGgan9NJjddT1fO",
+=======
+        600,
+        680
+      ],
+      "id": "03f07339-e41f-496d-871e-6a83880aa2e5",
+      "name": "Baixar arquivo",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "2XV3WEoonBrENqD3",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
           "name": "Google Drive account"
         }
       }
@@ -71,10 +89,17 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
+<<<<<<< HEAD
         560,
         272
       ],
       "id": "afb5f40a-d269-4eb2-8977-385158459f41",
+=======
+        1040,
+        680
+      ],
+      "id": "206d27fd-1a6c-4972-8549-9ffc23e71542",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
       "name": "Output"
     },
     {
@@ -99,6 +124,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
+<<<<<<< HEAD
         336,
         272
       ],
@@ -108,6 +134,17 @@
         "httpHeaderAuth": {
           "id": "C0eMQGDc861yfRFa",
           "name": "Chatwoot"
+=======
+        820,
+        680
+      ],
+      "id": "98fccd0f-89e0-4685-9372-dd6e2361f7cb",
+      "name": "Enviar arquivo",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "gHrrEXgQiCIIiUD3",
+          "name": "Chatwoot Credencial"
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
         }
       }
     },
@@ -121,10 +158,17 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
+<<<<<<< HEAD
         -192,
         80
       ],
       "id": "1bd774f4-087d-445d-ae85-9fa837a66b8f",
+=======
+        300,
+        500
+      ],
+      "id": "9dc9fce0-42a9-4cf3-88bf-dd536a9387b2",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
       "name": "Sticky Note30"
     }
   ],
@@ -168,11 +212,20 @@
   "settings": {
     "executionOrder": "v1"
   },
+<<<<<<< HEAD
   "versionId": "524e2788-1705-4715-b6c6-59eb520d784d",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "d8a7dbb9e6509fb213e426b82d04df07b648268fb2c830374de0a715dee40e75"
   },
   "id": "xDwUcCXzzsl0UUno",
+=======
+  "versionId": "c5ad129b-237d-4712-9fe4-8213c3bb8715",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9bf9253418ac3740b1b9bddbf7e7c7f9c5ad1db81b716e7b9c80687a584982ab"
+  },
+  "id": "5hlWLPPmmW1APfAa",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
   "tags": []
 }

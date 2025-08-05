@@ -32,10 +32,17 @@
       "type": "n8n-nodes-base.executeWorkflowTrigger",
       "typeVersion": 1.1,
       "position": [
+<<<<<<< HEAD
         80,
         352
       ],
       "id": "21b4733c-9d52-4224-8588-8bc22da2749b",
+=======
+        500,
+        600
+      ],
+      "id": "60faec9a-a5f0-4125-971b-c1fdd2293576",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
       "name": "When Executed by Another Workflow"
     },
     {
@@ -47,15 +54,26 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
+<<<<<<< HEAD
         848,
         352
       ],
       "id": "cff74d03-67d1-4b86-994e-076a05c82867",
+=======
+        1280,
+        600
+      ],
+      "id": "83d53953-b3c1-45ac-ac47-37f5dad27cbc",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
       "name": "Enviar alerta",
       "webhookId": "153d7fb2-c401-4894-95a5-c123c8bbdd0d",
       "credentials": {
         "telegramApi": {
+<<<<<<< HEAD
           "id": "d9IzOz5Ut702FVSU",
+=======
+          "id": "hxDC2yQwcKCu0VMr",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
           "name": "Telegram account"
         }
       }
@@ -80,6 +98,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
+<<<<<<< HEAD
         592,
         352
       ],
@@ -89,13 +108,28 @@
         "httpHeaderAuth": {
           "id": "C0eMQGDc861yfRFa",
           "name": "Chatwoot"
+=======
+        1020,
+        600
+      ],
+      "id": "dd1376d8-f796-4bce-b9ea-726a5879aed4",
+      "name": "Colocar etiqueta agente-off",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "gHrrEXgQiCIIiUD3",
+          "name": "Chatwoot Credencial"
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
         }
       }
     },
     {
       "parameters": {
         "method": "POST",
+<<<<<<< HEAD
         "url": "=http://145.223.26.136:3000/api/v1/accounts/{{ $json.account_id }}/labels",
+=======
+        "url": "=http://191.101.234.244:3000/api/v1/accounts/{{ $json.account_id }}/labels",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendBody": true,
@@ -106,6 +140,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
+<<<<<<< HEAD
         592,
         704
       ],
@@ -115,6 +150,17 @@
         "httpHeaderAuth": {
           "id": "C0eMQGDc861yfRFa",
           "name": "Chatwoot"
+=======
+        1020,
+        960
+      ],
+      "id": "97ad219e-2453-468f-a5b9-b8584fec68ca",
+      "name": "Criar etiqueta agente-off",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "gHrrEXgQiCIIiUD3",
+          "name": "Chatwoot Credencial"
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
         }
       }
     },
@@ -128,10 +174,17 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
+<<<<<<< HEAD
         16,
         592
       ],
       "id": "e620fae1-637e-4915-a655-b6391d40cc4c",
+=======
+        440,
+        840
+      ],
+      "id": "079811f8-cb80-40cd-8b12-787940463c28",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
       "name": "Sticky Note"
     },
     {
@@ -144,6 +197,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
+<<<<<<< HEAD
         352,
         352
       ],
@@ -153,6 +207,17 @@
         "httpHeaderAuth": {
           "id": "C0eMQGDc861yfRFa",
           "name": "Chatwoot"
+=======
+        780,
+        600
+      ],
+      "id": "9ee4f786-d635-481c-9d25-7e3b033b871f",
+      "name": "Listar etiquetas da conversa",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "gHrrEXgQiCIIiUD3",
+          "name": "Chatwoot Credencial"
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
         }
       }
     },
@@ -161,10 +226,17 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
+<<<<<<< HEAD
         80,
         704
       ],
       "id": "e0fec966-1033-40f6-87c3-7d6d43ff1263",
+=======
+        500,
+        960
+      ],
+      "id": "ce34296b-4996-453b-9062-ae6cfc3b4d10",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
       "name": "When clicking ‘Test workflow’"
     },
     {
@@ -177,16 +249,27 @@
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
+<<<<<<< HEAD
         48,
         144
       ],
       "id": "aaede204-e728-4156-b800-ed6e9ed26683",
+=======
+        480,
+        400
+      ],
+      "id": "6823b8d0-4ca1-4bc9-9000-b493b627a4d8",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
       "name": "Sticky Note30"
     },
     {
       "parameters": {
         "method": "POST",
+<<<<<<< HEAD
         "url": "=http://145.223.26.136:3000/api/v1/accounts/{{ $('Buscar informações da conta').item.json.accounts[0].id }}/labels",
+=======
+        "url": "=http://191.101.234.244:3000/api/v1/accounts/{{ $('Buscar informações da conta').item.json.accounts[0].id }}/labels",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendBody": true,
@@ -197,6 +280,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
+<<<<<<< HEAD
         848,
         704
       ],
@@ -206,12 +290,27 @@
         "httpHeaderAuth": {
           "id": "C0eMQGDc861yfRFa",
           "name": "Chatwoot"
+=======
+        1280,
+        960
+      ],
+      "id": "b0b804fe-f396-434e-876a-6406cea4a066",
+      "name": "Criar etiqueta testando-agente",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "gHrrEXgQiCIIiUD3",
+          "name": "Chatwoot Credencial"
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
         }
       }
     },
     {
       "parameters": {
+<<<<<<< HEAD
         "url": "http://145.223.26.136:3000/api/v1/profile",
+=======
+        "url": "http://191.101.234.244:3000/api/v1/profile",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "options": {}
@@ -219,6 +318,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
+<<<<<<< HEAD
         336,
         704
       ],
@@ -228,6 +328,17 @@
         "httpHeaderAuth": {
           "id": "C0eMQGDc861yfRFa",
           "name": "Chatwoot"
+=======
+        760,
+        960
+      ],
+      "id": "b4fe93eb-7f30-45fe-b701-41453f431477",
+      "name": "Buscar informações da conta",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "gHrrEXgQiCIIiUD3",
+          "name": "Chatwoot Credencial"
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
         }
       }
     }
@@ -305,11 +416,20 @@
   "settings": {
     "executionOrder": "v1"
   },
+<<<<<<< HEAD
   "versionId": "fa6fb998-e5de-4115-bedb-539dcfd20ee5",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "d8a7dbb9e6509fb213e426b82d04df07b648268fb2c830374de0a715dee40e75"
   },
   "id": "gvwyplHl8aBQTkmx",
+=======
+  "versionId": "fe2411f2-6874-4fd2-af4d-7f0c098b97b7",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9bf9253418ac3740b1b9bddbf7e7c7f9c5ad1db81b716e7b9c80687a584982ab"
+  },
+  "id": "nL0uopbVloezw50F",
+>>>>>>> 724ac980c694667f699f3c588d3d716c95763ea0
   "tags": []
 }
