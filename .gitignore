@@ -1,0 +1,40 @@
+# Sistema operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+
+# Logs e temporários
+*.log
+*.tmp
+*.bak
+
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite
+*.db
+
+# Node/N8N
+node_modules/
+.env
+.env.*
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de execução do Git
+*.orig
+
+# Backups automáticos
+*~
+
+# Credenciais exportadas por engano (boa prática)
+*.n8n.backup.json
+
+# Docker (se usar)
+docker-compose.override.yml
