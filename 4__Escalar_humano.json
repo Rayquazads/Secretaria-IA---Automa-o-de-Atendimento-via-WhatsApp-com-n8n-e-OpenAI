@@ -1,0 +1,315 @@
+{
+  "name": "4. Escalar humano",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "telefone"
+            },
+            {
+              "name": "nome"
+            },
+            {
+              "name": "ultima_mensagem"
+            },
+            {
+              "name": "id_conta"
+            },
+            {
+              "name": "id_conversa"
+            },
+            {
+              "name": "telegram_chat_id"
+            },
+            {
+              "name": "url_chatwoot"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        80,
+        352
+      ],
+      "id": "21b4733c-9d52-4224-8588-8bc22da2749b",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('When Executed by Another Workflow').item.json.telegram_chat_id }}",
+        "text": "=Assistente desabilitado para o usuário {{ $('When Executed by Another Workflow').item.json.nome || '(usuário não cadastrado)' }} ({{ $('When Executed by Another Workflow').item.json.telefone }}).\n\nÚltima mensagem:\n\n---\n\n{{ $('When Executed by Another Workflow').item.json.ultima_mensagem }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        848,
+        352
+      ],
+      "id": "cff74d03-67d1-4b86-994e-076a05c82867",
+      "name": "Enviar alerta",
+      "webhookId": "153d7fb2-c401-4894-95a5-c123c8bbdd0d",
+      "credentials": {
+        "telegramApi": {
+          "id": "d9IzOz5Ut702FVSU",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('When Executed by Another Workflow').item.json.url_chatwoot }}/api/v1/accounts/{{ $('When Executed by Another Workflow').item.json.id_conta }}/conversations/{{ $('When Executed by Another Workflow').item.json.id_conversa }}/labels",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "labels",
+              "value": "={{ $json.payload.append('agente-off').unique() }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        592,
+        352
+      ],
+      "id": "fad68598-d129-4ff9-9dce-308dcc48dac8",
+      "name": "Colocar etiqueta agente-off",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "C0eMQGDc861yfRFa",
+          "name": "Chatwoot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=http://145.223.26.136:3000/api/v1/accounts/{{ $json.account_id }}/labels",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"color\": \"#6233D0\",\n  \"description\": \"Agente IA não responderá esse contato.\",\n  \"title\": \"agente-off\",\n  \"show_on_sidebar\": true\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        592,
+        704
+      ],
+      "id": "f6eb9a57-9966-4000-87e4-d05b2772e34e",
+      "name": "Criar etiqueta agente-off",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "C0eMQGDc861yfRFa",
+          "name": "Chatwoot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Criar etiqueta\n\nVocê pode criar a etiqueta \"agente-off\" por aqui, ou pela interface do Chatwoot.\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+        "height": 340,
+        "width": 1040,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        16,
+        592
+      ],
+      "id": "e620fae1-637e-4915-a655-b6391d40cc4c",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "url": "={{ $('When Executed by Another Workflow').item.json.url_chatwoot }}/api/v1/accounts/{{ $('When Executed by Another Workflow').item.json.id_conta }}/conversations/{{ $('When Executed by Another Workflow').item.json.id_conversa }}/labels",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        352,
+        352
+      ],
+      "id": "97e38690-132c-47cc-a834-56e5d2494f0b",
+      "name": "Listar etiquetas da conversa",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "C0eMQGDc861yfRFa",
+          "name": "Chatwoot"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        80,
+        704
+      ],
+      "id": "e0fec966-1033-40f6-87c3-7d6d43ff1263",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "content": "## 4. Escalar humano",
+        "height": 80,
+        "width": 540,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        48,
+        144
+      ],
+      "id": "aaede204-e728-4156-b800-ed6e9ed26683",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=http://145.223.26.136:3000/api/v1/accounts/{{ $('Buscar informações da conta').item.json.accounts[0].id }}/labels",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"color\": \"#A44C74\",\n  \"title\": \"testando-agente\",\n  \"show_on_sidebar\": true\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        848,
+        704
+      ],
+      "id": "21ae87f2-9036-484d-a188-4fe08c374667",
+      "name": "Criar etiqueta testando-agente",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "C0eMQGDc861yfRFa",
+          "name": "Chatwoot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "http://145.223.26.136:3000/api/v1/profile",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        336,
+        704
+      ],
+      "id": "3c8551f2-8919-43a1-8da4-9f0091493df2",
+      "name": "Buscar informações da conta",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "C0eMQGDc861yfRFa",
+          "name": "Chatwoot"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Listar etiquetas da conversa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Colocar etiqueta agente-off": {
+      "main": [
+        [
+          {
+            "node": "Enviar alerta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Criar etiqueta agente-off": {
+      "main": [
+        [
+          {
+            "node": "Criar etiqueta testando-agente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Listar etiquetas da conversa": {
+      "main": [
+        [
+          {
+            "node": "Colocar etiqueta agente-off",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Buscar informações da conta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar informações da conta": {
+      "main": [
+        [
+          {
+            "node": "Criar etiqueta agente-off",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "fa6fb998-e5de-4115-bedb-539dcfd20ee5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d8a7dbb9e6509fb213e426b82d04df07b648268fb2c830374de0a715dee40e75"
+  },
+  "id": "gvwyplHl8aBQTkmx",
+  "tags": []
+}

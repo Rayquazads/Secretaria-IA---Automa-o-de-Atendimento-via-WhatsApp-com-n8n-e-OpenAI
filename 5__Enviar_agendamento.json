@@ -1,0 +1,105 @@
+{
+  "name": "5. Enviar agendamento",
+  "nodes": [
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "mensagem"
+            },
+            {
+              "name": "id_conta"
+            },
+            {
+              "name": "id_conversa"
+            },
+            {
+              "name": "url_chatwoot"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -64,
+        224
+      ],
+      "id": "1f86c488-9473-425e-88dd-a071d407ae1a",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $json.url_chatwoot }}/api/v1/accounts/{{ $json.id_conta }}/conversations/{{ $json.id_conversa }}/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "content",
+              "value": "={{ $json.mensagem }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        160,
+        224
+      ],
+      "id": "1d5cb064-59d7-4e2d-a270-55624928342c",
+      "name": "Enviar mensagem",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "C0eMQGDc861yfRFa",
+          "name": "Chatwoot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## 5. Enviar agendamento",
+        "height": 80,
+        "width": 540,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        0
+      ],
+      "id": "c436fc26-6208-4630-ad30-1953b4fcf93d",
+      "name": "Sticky Note30"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Enviar mensagem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "97101b04-32f9-4a04-9b05-af8d74972bd4",
+  "meta": {
+    "instanceId": "d8a7dbb9e6509fb213e426b82d04df07b648268fb2c830374de0a715dee40e75"
+  },
+  "id": "XYIyoA9T29VLWTUV",
+  "tags": []
+}
